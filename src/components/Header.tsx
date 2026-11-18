@@ -1,8 +1,10 @@
 import { useState, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Moon, Search, ShieldCheck, Sun } from 'lucide-react'
+import { Moon, Search, Sun } from 'lucide-react'
 import type { Theme } from '../lib/useTheme'
 import { cn } from '../lib/cn'
+
+import { Logo } from './Logo'
 
 interface HeaderProps {
   theme: Theme
@@ -23,17 +25,9 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2.5 rounded-lg transition-opacity hover:opacity-80"
+          className="shrink-0 transition-opacity hover:opacity-90"
         >
-          <span className="relative flex size-9 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 shadow-sm shadow-indigo-500/30">
-            <ShieldCheck className="size-[18px] text-white" strokeWidth={2.2} />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="text-[15px] font-semibold tracking-tight">CleanDev</span>
-            <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">
-              Tools
-            </span>
-          </span>
+          <Logo size="md" />
         </Link>
 
         <form onSubmit={handleSearch} className="relative ml-2 hidden flex-1 md:block md:max-w-xs">

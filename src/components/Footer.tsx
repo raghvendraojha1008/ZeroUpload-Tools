@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom'
-import { ShieldCheck } from 'lucide-react'
 import { TOOLS } from '../lib/tools'
+import { Logo } from './Logo'
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-slate-200 dark:border-slate-800">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <div className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-            <ShieldCheck className="size-4 text-indigo-500" />
-            CleanDevTools
-          </div>
-          <p className="mt-2 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400">
-            Fast, free developer utilities that run entirely in your browser. No servers, no
-            uploads, no tracking.
+          <Link to="/" className="inline-block transition hover:opacity-90">
+            <Logo size="sm" />
+          </Link>
+          <p className="mt-3 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400">
+            Fast, clean, free developer utilities that run 100% in your browser. No servers, no
+            cloud uploads, no tracking.
           </p>
         </div>
 
