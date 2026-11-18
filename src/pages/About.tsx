@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 export function About() {
   usePageMeta({
-    title: 'About Us — ZeroUpload Tools',
-    description: 'Learn why we built ZeroUpload Tools: private, client-side, zero-upload web utilities for developers and creators.',
+    title: 'About Us',
+    description: 'Learn why we built CleanDevTools: private, clean, client-side, zero-upload web utilities for developers and creators.',
     path: '/about',
   })
 
@@ -16,7 +16,7 @@ export function About() {
 
       <div className="mt-8">
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-slate-100">
-          About ZeroUpload Tools
+          About CleanDevTools
         </h1>
         <p className="mt-3 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
           We believe routine data tasks shouldn't require sending your sensitive files across the Internet or paying costly monthly subscriptions.
@@ -54,7 +54,7 @@ export function About() {
             Modern web utilities have become bloated with intrusive full-screen popups, mandatory user accounts, and aggressive \$15/month subscriptions just to convert a simple JSON file or clean a spreadsheet column. Even worse, many popular converters quietly upload sensitive spreadsheets and production JWT tokens to third-party cloud servers.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            ZeroUpload Tools was created to provide a modern, ultra-clean alternative built on modern web standards like HTML5 File API and Web Workers.
+            CleanDevTools was created to provide a modern, ultra-clean alternative built on modern web standards like HTML5 File API and Web Workers.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link
@@ -64,7 +64,7 @@ export function About() {
               Explore All Tools
             </Link>
             <a
-              href="mailto:support@zeroupload.tools"
+              href="mailto:support@cleandevtools.com"
               className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
             >
               <Mail className="size-3.5" />

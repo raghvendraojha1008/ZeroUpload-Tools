@@ -4,8 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs'
 
 export function PrivacyPolicy() {
   usePageMeta({
-    title: 'Privacy Policy — ZeroUpload Tools',
-    description: 'Learn how ZeroUpload Tools protects your data with 100% client-side in-browser processing and zero cloud retention.',
+    title: 'Privacy Policy',
+    description: 'Learn how CleanDevTools protects your data with 100% client-side in-browser processing and zero cloud retention.',
     path: '/privacy',
   })
 
@@ -32,7 +32,7 @@ export function PrivacyPolicy() {
               1. Zero Server Uploads (Your Data Stays on Your Device)
             </h2>
             <p className="mt-3">
-              Unlike traditional online converters that upload your confidential files, spreadsheets, API tokens, or logs to remote cloud servers, <strong>ZeroUpload Tools processes 100% of your data inside your local browser tab</strong> using the HTML5 File API and client-side JavaScript.
+              Unlike traditional online converters that upload your confidential files, spreadsheets, API tokens, or logs to remote cloud servers, <strong>CleanDevTools processes 100% of your data inside your local browser tab</strong> using the HTML5 File API and client-side JavaScript.
             </p>
             <p className="mt-2">
               Your files and input strings are never transmitted across the network, never saved on a backend disk, and never accessible to us or any third party. Once you close your browser tab, your data is cleared from your computer's RAM.
@@ -87,7 +87,7 @@ export function PrivacyPolicy() {
             </h2>
             <p>
               If you have any questions or feedback regarding our privacy practices, please contact us at{' '}
-              <span className="font-mono text-indigo-600 dark:text-indigo-400">support@zeroupload.tools</span>.
+              <span className="font-mono text-indigo-600 dark:text-indigo-400">support@cleandevtools.com</span>.
             </p>
           </section>
         </div>

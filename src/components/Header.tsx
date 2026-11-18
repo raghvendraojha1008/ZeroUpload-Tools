@@ -29,8 +29,8 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
             <ShieldCheck className="size-[18px] text-white" strokeWidth={2.2} />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="text-[15px] font-semibold tracking-tight">ZeroUpload</span>
-            <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+            <span className="text-[15px] font-semibold tracking-tight">CleanDev</span>
+            <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-400">
               Tools
             </span>
           </span>

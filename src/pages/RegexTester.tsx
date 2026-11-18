@@ -55,9 +55,9 @@ export function RegexTester() {
   const [replacement, setReplacement] = useState('')
 
   usePageMeta({
-    title: 'Regex Tester',
+    title: 'Online Regex Tester & Debugger — Instant Regex Matcher',
     description:
-      'Test JavaScript regular expressions with live highlighting, numbered and named capture groups and a replace preview — all in your browser.',
+      'Test and debug regular expressions online with live color highlighting, capture groups breakdown, cheatsheet presets, and replace preview. 100% in-browser.',
     path: '/tools/regex-tester',
   })
 

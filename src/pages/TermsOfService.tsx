@@ -4,8 +4,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs'
 
 export function TermsOfService() {
   usePageMeta({
-    title: 'Terms of Service — ZeroUpload Tools',
-    description: 'Terms and conditions for using ZeroUpload Tools free client-side developer utilities.',
+    title: 'Terms of Service',
+    description: 'Terms and conditions for using CleanDevTools free client-side developer utilities.',
     path: '/terms',
   })
 
@@ -28,7 +28,7 @@ export function TermsOfService() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing and using ZeroUpload Tools ("the Service"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by these terms, please do not use this site.
+              By accessing and using CleanDevTools ("the Service"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by these terms, please do not use this site.
             </p>
           </section>
 
@@ -38,7 +38,7 @@ export function TermsOfService() {
               2. Use License & Availability
             </h2>
             <p>
-              ZeroUpload Tools provides free, client-side developer and data transformation utilities. You are free to use these tools for personal, academic, and commercial purposes without subscription fees or licensing royalties.
+              CleanDevTools provides free, client-side developer and data transformation utilities. You are free to use these tools for personal, academic, and commercial purposes without subscription fees or licensing royalties.
             </p>
           </section>
 
@@ -47,7 +47,7 @@ export function TermsOfService() {
               3. Disclaimer of Warranties
             </h2>
             <p>
-              The tools and utilities are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied. While we strive for absolute accuracy in data parsing, regex matching, fee computations, and token decoding, ZeroUpload Tools does not warrant that the service will be uninterrupted, error-free, or entirely bug-free.
+              The tools and utilities are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied. While we strive for absolute accuracy in data parsing, regex matching, fee computations, and token decoding, CleanDevTools does not warrant that the service will be uninterrupted, error-free, or entirely bug-free.
             </p>
             <p>
               You assume full responsibility for verifying the accuracy of any critical computations (including financial calculations and tax figures) before relying on them for commercial transactions.
@@ -59,7 +59,7 @@ export function TermsOfService() {
               4. Limitation of Liability
             </h2>
             <p>
-              In no event shall ZeroUpload Tools, its authors, or operators be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the site or its client-side utilities.
+              In no event shall CleanDevTools, its authors, or operators be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the site or its client-side utilities.
             </p>
           </section>
 

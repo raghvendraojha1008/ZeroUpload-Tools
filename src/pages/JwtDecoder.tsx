@@ -56,9 +56,9 @@ export function JwtDecoder() {
   const [errorDismissed, setErrorDismissed] = useState(false)
 
   usePageMeta({
-    title: 'JWT Decoder',
+    title: 'JWT Decoder & Inspector — Free Online Token Viewer',
     description:
-      'Decode JWT headers, payloads and expiry countdowns in your browser. No uploads, no keys, and no claim that the signature is verified.',
+      'Decode and inspect JSON Web Tokens (JWT) online. View headers, payloads, claims and live expiry countdown timers. 100% private in-browser decoding.',
     path: '/tools/jwt-decoder',
   })
 

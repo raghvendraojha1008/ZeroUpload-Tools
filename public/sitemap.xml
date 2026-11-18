@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zeroupload.tools/</loc>
+    <loc>https://cleandevtools.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/tools/json-to-csv</loc>
+    <loc>https://cleandevtools.com/tools/json-to-csv</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/tools/jwt-decoder</loc>
+    <loc>https://cleandevtools.com/tools/jwt-decoder</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/tools/csv-column-cleaner</loc>
+    <loc>https://cleandevtools.com/tools/csv-column-cleaner</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/tools/freelance-fee-calculator</loc>
+    <loc>https://cleandevtools.com/tools/freelance-fee-calculator</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/tools/regex-tester</loc>
+    <loc>https://cleandevtools.com/tools/regex-tester</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://zeroupload.tools/privacy</loc>
+    <loc>https://cleandevtools.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://zeroupload.tools/terms</loc>
+    <loc>https://cleandevtools.com/privacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://cleandevtools.com/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

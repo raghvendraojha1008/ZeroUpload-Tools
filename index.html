@@ -1,30 +1,31 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZeroUpload Tools — Fast, Free & 100% Private Developer Utilities</title>
+    <title>CleanDevTools — Fast, Free & 100% Private Developer Utilities</title>
     <meta
       name="description"
-      content="Free developer utilities that run entirely in your browser. Convert JSON to CSV, decode tokens and clean data without uploading a single byte."
+      content="Free, clean developer utilities that run 100% in your browser. Convert JSON to CSV, decode JWT tokens, clean spreadsheets and test regex with zero cloud uploads."
     />
-    <meta name="robots" content="index,follow" />
-    <meta name="theme-color" content="#08080a" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href="https://zeroupload.tools/" />
+    <link rel="canonical" href="https://cleandevtools.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="ZeroUpload Tools" />
-    <meta property="og:title" content="ZeroUpload Tools — Fast, Free & 100% Private Developer Utilities" />
+    <meta property="og:site_name" content="CleanDevTools" />
+    <meta property="og:title" content="CleanDevTools — Fast, Free & 100% Private Developer Utilities" />
     <meta
       property="og:description"
-      content="Free developer utilities that run entirely in your browser. Convert JSON to CSV, decode tokens and clean data without uploading a single byte."
+      content="Free, clean developer utilities that run 100% in your browser. Convert JSON to CSV, decode JWT tokens, clean spreadsheets and test regex with zero cloud uploads."
     />
-    <meta property="og:url" content="https://zeroupload.tools/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="ZeroUpload Tools — Fast, Free & 100% Private Developer Utilities" />
+    <meta property="og:url" content="https://cleandevtools.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CleanDevTools — Fast, Free & 100% Private Developer Utilities" />
     <meta
       name="twitter:description"
-      content="Free developer utilities that run entirely in your browser. Convert JSON to CSV, decode tokens and clean data without uploading a single byte."
+      content="Free, clean developer utilities that run 100% in your browser. Convert JSON to CSV, decode JWT tokens, clean spreadsheets and test regex with zero cloud uploads."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,11 +37,11 @@
       (function () {
         try {
           var stored = localStorage.getItem('zu-theme');
-          var theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+          var theme = stored === 'light' || stored === 'dark' ? stored : 'light';
           document.documentElement.classList.toggle('dark', theme === 'dark');
           document.documentElement.style.colorScheme = theme;
         } catch (error) {
-          /* localStorage unavailable — keep the default theme */
+          /* localStorage unavailable — default to light */
         }
       })();
     </script>

@@ -67,9 +67,9 @@ const APP_SCHEMA = buildAppSchema({
 
 export function CsvColumnCleaner() {
   usePageMeta({
-    title: 'CSV Column Cleaner',
+    title: 'CSV Column Cleaner & Filter — Drop Columns Online',
     description:
-      'Keep only the columns you need, trim whitespace and drop empty or duplicate rows, then export a sanitised CSV — entirely client-side.',
+      'Clean, filter and remove CSV columns online for free. Select columns to keep, trim whitespace, drop empty or duplicate rows, and export clean CSVs locally.',
     path: '/tools/csv-column-cleaner',
   })
 

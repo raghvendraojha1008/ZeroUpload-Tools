@@ -59,9 +59,9 @@ export function FreelanceFeeCalculator() {
   const [providers, setProviders] = useState<FeeProvider[]>(DEFAULT_PROVIDERS)
 
   usePageMeta({
-    title: 'Freelance Fee Calculator',
+    title: 'Freelance Fee Calculator — Stripe, PayPal & Wise Comparison',
     description:
-      'Compare Stripe, PayPal and Wise processing fees and find the exact invoice amount that leaves you with the payout you need.',
+      'Compare payment processing fees for Stripe, PayPal and Wise. Calculate net profit and find the exact invoice amount needed to hit your desired payout.',
     path: '/tools/freelance-fee-calculator',
   })
 
@@ -77,7 +77,7 @@ export function FreelanceFeeCalculator() {
 
   const summary = hasResult
     ? [
-        `ZeroUpload fee breakdown (${currency})`,
+        `CleanDev fee breakdown (${currency})`,
         `Provider: ${best.provider.name} — ${best.provider.percent}% + ${formatMoney(best.provider.fixed, currency)}`,
         `Invoice: ${formatMoney(best.invoice, currency)}`,
         `Processing fee: ${formatMoney(best.fee, currency)}`,

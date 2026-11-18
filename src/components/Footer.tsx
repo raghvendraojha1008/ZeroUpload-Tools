@@ -9,7 +9,7 @@ export function Footer() {
         <div className="max-w-sm">
           <div className="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <ShieldCheck className="size-4 text-indigo-500" />
-            ZeroUpload Tools
+            CleanDevTools
           </div>
           <p className="mt-2 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400">
             Fast, free developer utilities that run entirely in your browser. No servers, no
@@ -91,7 +91,7 @@ export function Footer() {
 
       <div className="border-t border-slate-200 dark:border-slate-800">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 dark:text-slate-400">
-          <p>© {new Date().getFullYear()} ZeroUpload Tools. Free forever.</p>
+          <p>© {new Date().getFullYear()} CleanDevTools. Free forever.</p>
           <p>Built with React, Vite &amp; Tailwind CSS.</p>
         </div>
       </div>

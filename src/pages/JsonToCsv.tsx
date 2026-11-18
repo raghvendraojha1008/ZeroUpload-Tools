@@ -49,9 +49,9 @@ const DELIMITERS: Array<{ value: Delimiter; label: string }> = [
 
 export function JsonToCsv() {
   usePageMeta({
-    title: 'JSON to CSV Converter',
+    title: 'JSON to CSV Converter — Free, Online & 100% Private',
     description:
-      'Flatten nested JSON into clean, Excel-ready CSV with a live preview, delimiter control and quote wrapping — parsed entirely in your browser.',
+      'Convert JSON to clean CSV or Excel spreadsheet online for free. Auto-flattens nested objects, live table preview, 100% client-side with zero cloud uploads.',
     path: '/tools/json-to-csv',
   })
 

@@ -11,7 +11,7 @@ function readStoredTheme(): Theme {
   } catch {
     // Storage can be blocked by the browser; fall back to the default.
   }
-  return 'dark'
+  return 'light'
 }
 
 export function useTheme() {
