@@ -1,2 +1,0 @@
-# SPA fallback for Netlify / Cloudflare Pages so deep links resolve to the app shell.
-/*    /index.html   200
