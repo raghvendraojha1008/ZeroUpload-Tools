@@ -509,6 +509,8 @@ export function Base64FileConverter() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="Data URI syntax, size overhead, MIME types and what Base64 is not."
         faqs={FAQ_ITEMS}
+        toolId="base64-file-converter"
+        category="Dev"
       />
     </div>
   )

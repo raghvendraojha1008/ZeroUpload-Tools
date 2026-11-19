@@ -366,6 +366,8 @@ export function MarkdownTableGenerator() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="GFM syntax, escaping, alignment support and practical size limits."
         faqs={FAQ_ITEMS}
+        toolId="markdown-table-generator"
+        category="Text"
       />
     </div>
   )

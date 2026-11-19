@@ -423,6 +423,8 @@ export function UrlParser() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="URL structure, encoding, duplicate keys and fragments."
         faqs={FAQ_ITEMS}
+        toolId="url-parser"
+        category="Dev"
       />
     </div>
   )

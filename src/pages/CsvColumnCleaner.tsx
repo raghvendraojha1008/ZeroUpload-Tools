@@ -482,6 +482,8 @@ export function CsvColumnCleaner() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="Delimiters, quoting, duplicate detection and what the cleaner preserves."
         faqs={FAQ_ITEMS}
+        toolId="csv-column-cleaner"
+        category="Data"
       />
     </div>
   )

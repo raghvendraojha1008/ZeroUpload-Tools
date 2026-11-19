@@ -359,6 +359,8 @@ export function JwtDecoder() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="Expiry, audiences, signature verification and what this tool deliberately does not do."
         faqs={FAQ_ITEMS}
+        toolId="jwt-decoder"
+        category="Security"
       />
 
     </div>

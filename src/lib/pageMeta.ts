@@ -21,61 +21,61 @@ export const PAGE_META = {
     path: '/',
   },
   jsonToCsv: {
-    title: 'JSON to CSV Converter — Free, Online & 100% Private',
+    title: 'JSON to CSV Converter — 100% In-Browser & Private [No File Upload]',
     description:
       'Convert JSON to clean CSV or Excel spreadsheet online for free. Auto-flattens nested objects, live table preview, 100% client-side with zero cloud uploads.',
     path: '/tools/json-to-csv',
   },
   jwtDecoder: {
-    title: 'JWT Decoder & Inspector — Free Online Token Viewer',
+    title: 'JWT Decoder & Inspector — Decode Tokens Online [Zero Token Leak]',
     description:
       'Decode and inspect JSON Web Tokens (JWT) online. View headers, payloads, claims and live expiry countdown timers. 100% private in-browser decoding.',
     path: '/tools/jwt-decoder',
   },
   csvColumnCleaner: {
-    title: 'CSV Column Cleaner & Filter — Drop Columns Online',
+    title: 'CSV Column Cleaner & Filter — Drop Empty Columns & Rows Online',
     description:
       'Clean, filter and remove CSV columns online for free. Select columns to keep, trim whitespace, drop empty or duplicate rows, and export clean CSVs locally.',
     path: '/tools/csv-column-cleaner',
   },
   freelanceFeeCalculator: {
-    title: 'Freelance Fee Calculator — Stripe, PayPal & Wise Comparison',
+    title: 'Freelance Fee Calculator — Compare Stripe, PayPal & Wise Fees',
     description:
       'Compare payment processing fees for Stripe, PayPal and Wise. Calculate net profit and find the exact invoice amount needed to hit your desired payout.',
     path: '/tools/freelance-fee-calculator',
   },
   regexTester: {
-    title: 'Online Regex Tester & Debugger — Instant Regex Matcher',
+    title: 'Online Regex Tester & Debugger — Instant Live Matcher & Cheatsheet',
     description:
       'Test and debug regular expressions online with live color highlighting, capture groups breakdown, cheatsheet presets, and replace preview. 100% in-browser.',
     path: '/tools/regex-tester',
   },
   sqlToJsonCsv: {
-    title: 'SQL to JSON & CSV Converter — Convert INSERT Statements Online',
+    title: 'SQL to JSON & CSV Converter — Instant INSERT Query Parser Online',
     description:
       'Convert SQL INSERT statements and table dumps into JSON or clean CSV in your browser. Reads column names, handles NULLs and multi-row values, then copies or downloads instantly.',
     path: '/tools/sql-to-json-csv',
   },
   base64FileConverter: {
-    title: 'File & Image to Base64 Converter — Encode or Decode Online',
+    title: 'Base64 File & Image Converter — Encode & Decode Data URIs Locally',
     description:
       'Convert images, SVG, PDFs and text files to Base64 data URIs, or decode any Base64 string back to a file with a live preview. 100% in-browser, no uploads.',
     path: '/tools/base64-file-converter',
   },
   markdownTableGenerator: {
-    title: 'Markdown Table Generator — Visual GFM Table Builder',
+    title: 'Markdown Table Generator — Visual Spreadsheet to GFM Table Builder',
     description:
       'Create GitHub-flavored Markdown tables in a visual spreadsheet editor. Add rows and columns, set per-column alignment and copy clean, padded Markdown instantly.',
     path: '/tools/markdown-table-generator',
   },
   uuidGenerator: {
-    title: 'UUID Generator — Bulk UUID v4 & v7 Online',
+    title: 'UUID & GUID Generator — Bulk UUID v4 & Timestamp v7 Online',
     description:
       'Generate up to 100 UUID v4 or timestamp-based v7 identifiers instantly. Toggle uppercase, hyphens and JSON output, then copy or download. Runs fully in your browser.',
     path: '/tools/uuid-generator',
   },
   urlParser: {
-    title: 'URL Parser & Query String Inspector — Break Down Any URL',
+    title: 'URL Parser & Query Inspector — Decode Parameters & URLs Online',
     description:
       'Inspect any URL: protocol, host, port, path, fragment and every query parameter. Edit params inline and copy the reassembled encoded or decoded URL. 100% in-browser.',
     path: '/tools/url-parser',

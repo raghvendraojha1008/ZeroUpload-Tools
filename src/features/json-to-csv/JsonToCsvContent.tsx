@@ -1,6 +1,7 @@
 import { Check, ShieldCheck } from 'lucide-react'
 import { FaqAccordion, type FaqItem } from '../../components/FaqAccordion'
 import { AdSlot } from '../../components/AdSlot'
+import { RelatedTools } from '../../components/RelatedTools'
 
 const STEPS = [
   {
@@ -147,6 +148,8 @@ export function JsonToCsvContent() {
           </div>
         </div>
       </div>
+
+      <RelatedTools currentToolId="json-to-csv" category="Data" />
     </section>
   )
 }

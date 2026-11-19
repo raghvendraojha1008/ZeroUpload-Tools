@@ -543,6 +543,8 @@ export function RegexTester() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="Flavour details, global scanning, capture groups and the replace preview."
         faqs={FAQ_ITEMS}
+        toolId="regex-tester"
+        category="Text"
       />
     </div>
   )

@@ -1,6 +1,8 @@
 import { Check, ShieldCheck } from 'lucide-react'
 import { FaqAccordion, type FaqItem } from './FaqAccordion'
 import { AdSlot } from './AdSlot'
+import { RelatedTools } from './RelatedTools'
+import type { ToolCategory } from '../lib/tools'
 
 export interface GuideStep {
   title: string
@@ -16,6 +18,22 @@ export interface ToolGuideProps {
   faqTitle?: string
   faqIntro: string
   faqs: FaqItem[]
+  toolId?: string
+  category?: ToolCategory
+}
+
+export function buildHowToSchema(title: string, steps: GuideStep[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.title,
+      text: step.body,
+    })),
+  }
 }
 
 export function buildFaqSchema(faqs: FaqItem[]) {
@@ -58,6 +76,8 @@ export function ToolGuide({
   faqTitle = 'Frequently asked questions',
   faqIntro,
   faqs,
+  toolId,
+  category,
 }: ToolGuideProps) {
   return (
     <section className="mt-16 border-t border-slate-200 pt-12 dark:border-slate-800">
@@ -124,6 +144,8 @@ export function ToolGuide({
           </div>
         </div>
       </div>
+
+      {toolId && <RelatedTools currentToolId={toolId} category={category} />}
     </section>
   )
 }

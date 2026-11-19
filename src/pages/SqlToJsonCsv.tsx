@@ -336,6 +336,8 @@ export function SqlToJsonCsv() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="Dialects, dumps, NULL handling and the row cap."
         faqs={FAQ_ITEMS}
+        toolId="sql-to-json-csv"
+        category="Data"
       />
     </div>
   )

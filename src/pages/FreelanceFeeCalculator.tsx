@@ -466,6 +466,8 @@ export function FreelanceFeeCalculator() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="The net-to-gross formula, why small invoices hurt, and where this estimate stops."
         faqs={FAQ_ITEMS}
+        toolId="freelance-fee-calculator"
+        category="Finance"
       />
     </div>
   )

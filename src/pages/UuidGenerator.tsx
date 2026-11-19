@@ -301,6 +301,8 @@ export function UuidGenerator() {
         privacyPoints={PRIVACY_POINTS}
         faqIntro="v4 versus v7, collision odds, CSPRNG randomness and database keys."
         faqs={FAQ_ITEMS}
+        toolId="uuid-generator"
+        category="Dev"
       />
     </div>
   )
