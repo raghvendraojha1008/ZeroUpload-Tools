@@ -38,6 +38,7 @@ import {
   type Delimiter,
 } from '../features/json-to-csv/csv'
 import { SAMPLE_JSON } from '../features/json-to-csv/sample'
+import { PAGE_META } from '../lib/pageMeta'
 import { usePageMeta } from '../lib/usePageMeta'
 import { cn } from '../lib/cn'
 
@@ -48,12 +49,7 @@ const DELIMITERS: Array<{ value: Delimiter; label: string }> = [
 ]
 
 export function JsonToCsv() {
-  usePageMeta({
-    title: 'JSON to CSV Converter — Free, Online & 100% Private',
-    description:
-      'Convert JSON to clean CSV or Excel spreadsheet online for free. Auto-flattens nested objects, live table preview, 100% client-side with zero cloud uploads.',
-    path: '/tools/json-to-csv',
-  })
+  usePageMeta(PAGE_META.jsonToCsv)
 
   const toast = useToast()
   const [source, setSource] = useState('')

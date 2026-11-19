@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import {
   Code2,
   Highlighter,
@@ -28,10 +29,13 @@ import {
 } from '../features/regex-tester/regex'
 import { PRESETS, SAMPLE_TEXT } from '../features/regex-tester/sample'
 import { FAQ_ITEMS, PRIVACY_INTRO, PRIVACY_POINTS, STEPS } from '../features/regex-tester/content'
+import { PAGE_META } from '../lib/pageMeta'
 import { usePageMeta } from '../lib/usePageMeta'
+import { buildShareUrl } from '../lib/share'
 import { cn } from '../lib/cn'
 
 const DISPLAY_LIMIT = 100
+const MAX_SHARE_TEXT = 2000
 
 const FAQ_SCHEMA = buildFaqSchema(FAQ_ITEMS)
 const APP_SCHEMA = buildAppSchema({
@@ -49,17 +53,22 @@ const APP_SCHEMA = buildAppSchema({
 })
 
 export function RegexTester() {
-  const [pattern, setPattern] = useState('')
-  const [flags, setFlags] = useState<Set<string>>(new Set())
-  const [text, setText] = useState('')
+  const [searchParams] = useSearchParams()
+
+  // Shared links reproduce the pattern, its flags and the sample text.
+  const [pattern, setPattern] = useState(() => searchParams.get('pattern') ?? '')
+  const [flags, setFlags] = useState<Set<string>>(
+    () =>
+      new Set(
+        (searchParams.get('flags') ?? '')
+          .split('')
+          .filter((flag) => FLAG_OPTIONS.some((option) => option.flag === flag)),
+      ),
+  )
+  const [text, setText] = useState(() => searchParams.get('text') ?? '')
   const [replacement, setReplacement] = useState('')
 
-  usePageMeta({
-    title: 'Online Regex Tester & Debugger — Instant Regex Matcher',
-    description:
-      'Test and debug regular expressions online with live color highlighting, capture groups breakdown, cheatsheet presets, and replace preview. 100% in-browser.',
-    path: '/tools/regex-tester',
-  })
+  usePageMeta(PAGE_META.regexTester)
 
   const activeFlags = flagString(flags)
   // Scanning is always global; the toggles only change how the pattern is read.
@@ -90,6 +99,14 @@ export function RegexTester() {
       ),
     [result.matches],
   )
+
+  // Very long test text would make a link unusable, so it stays out of shares.
+  const textOmitted = text.length > MAX_SHARE_TEXT
+  const shareUrl = buildShareUrl('/tools/regex-tester', {
+    pattern,
+    flags: activeFlags,
+    text: textOmitted ? '' : text,
+  })
 
   function toggleFlag(flag: string) {
     setFlags((current) => {
@@ -303,6 +320,20 @@ export function RegexTester() {
                   disabled={!pattern}
                   toastMessage="Pattern copied"
                 />
+                <CopyButton
+                  value={pattern ? shareUrl : ''}
+                  label="Share Pattern"
+                  variant="outline"
+                  className="w-full"
+                  disabled={!pattern}
+                  toastMessage="Shareable pattern link copied"
+                />
+                {textOmitted ? (
+                  <p className="text-[10.5px] leading-relaxed text-slate-500 dark:text-slate-400">
+                    Test text over {MAX_SHARE_TEXT.toLocaleString()} characters is left out of
+                    shared links so they stay pasteable.
+                  </p>
+                ) : null}
                 <CopyButton
                   value={matchJson}
                   label="Copy match JSON"

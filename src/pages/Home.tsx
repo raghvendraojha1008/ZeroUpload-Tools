@@ -1,10 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { Gauge, Search, ShieldCheck, X, Zap } from 'lucide-react'
 import { CATEGORIES, TOOLS, matchesTool, type CategoryFilter } from '../lib/tools'
+import { JsonLd } from '../components/FaqAccordion'
 import { ToolCard } from '../components/ToolCard'
+import { PAGE_META } from '../lib/pageMeta'
+import { buildWebSiteSchema } from '../lib/schema'
 import { usePageMeta } from '../lib/usePageMeta'
 import { cn } from '../lib/cn'
+
+const WEBSITE_SCHEMA = buildWebSiteSchema()
 
 const TRUST_POINTS = [
   {
@@ -25,13 +30,10 @@ const TRUST_POINTS = [
 ]
 
 export function Home() {
-  usePageMeta({
-    title: 'Fast, free & 100% private developer utilities',
-    description:
-      'Free developer utilities that run entirely in your browser. Convert JSON to CSV, decode JWTs, clean spreadsheets and test regex without uploading a byte.',
-    path: '/',
-  })
+  usePageMeta(PAGE_META.home)
 
+  const location = useLocation()
+  const heroSearchRef = useRef<HTMLInputElement>(null)
   const [searchParams] = useSearchParams()
   const urlQuery = searchParams.get('q') ?? ''
   const [query, setQuery] = useState(urlQuery)
@@ -40,6 +42,13 @@ export function Home() {
   useEffect(() => {
     setQuery(urlQuery)
   }, [urlQuery])
+
+  // The header shortcut sends small screens here, where the hero search lives.
+  useEffect(() => {
+    if ((location.state as { focusSearch?: boolean } | null)?.focusSearch) {
+      heroSearchRef.current?.focus()
+    }
+  }, [location.state])
 
   const visibleTools = useMemo(
     () =>
@@ -53,6 +62,8 @@ export function Home() {
 
   return (
     <>
+      <JsonLd id="home-website-schema" data={WEBSITE_SCHEMA} />
+
       <section className="relative overflow-hidden border-b border-slate-200 dark:border-slate-800">
         <div
           aria-hidden="true"
@@ -79,6 +90,8 @@ export function Home() {
           <div className="relative mt-7 max-w-xl">
             <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
             <input
+              ref={heroSearchRef}
+              id="tool-search"
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}

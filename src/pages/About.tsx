@@ -1,17 +1,20 @@
 import { ShieldCheck, Cpu, Zap, Mail } from 'lucide-react'
+import { PAGE_META } from '../lib/pageMeta'
+import { JsonLd } from '../components/FaqAccordion'
 import { usePageMeta } from '../lib/usePageMeta'
+import { buildWebPageSchema } from '../lib/schema'
+
 import { Breadcrumbs } from '../components/Breadcrumbs'
 import { Link } from 'react-router-dom'
 
+const PAGE_SCHEMA = buildWebPageSchema(PAGE_META.about)
+
 export function About() {
-  usePageMeta({
-    title: 'About Us',
-    description: 'Learn why we built CleanDevTools: private, clean, client-side, zero-upload web utilities for developers and creators.',
-    path: '/about',
-  })
+  usePageMeta(PAGE_META.about)
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd id="about-page-schema" data={PAGE_SCHEMA} />
       <Breadcrumbs items={[{ label: 'About' }]} />
 
       <div className="mt-8">

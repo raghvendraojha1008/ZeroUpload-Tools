@@ -1,16 +1,19 @@
 import { ShieldCheck, Lock, EyeOff, Cookie } from 'lucide-react'
+import { PAGE_META } from '../lib/pageMeta'
+import { JsonLd } from '../components/FaqAccordion'
 import { usePageMeta } from '../lib/usePageMeta'
+import { buildWebPageSchema } from '../lib/schema'
 import { Breadcrumbs } from '../components/Breadcrumbs'
 
+const PAGE_SCHEMA = buildWebPageSchema(PAGE_META.privacyPolicy)
+
+
 export function PrivacyPolicy() {
-  usePageMeta({
-    title: 'Privacy Policy',
-    description: 'Learn how CleanDevTools protects your data with 100% client-side in-browser processing and zero cloud retention.',
-    path: '/privacy',
-  })
+  usePageMeta(PAGE_META.privacyPolicy)
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd id="privacy-page-schema" data={PAGE_SCHEMA} />
       <Breadcrumbs items={[{ label: 'Privacy Policy' }]} />
 
       <div className="mt-8">

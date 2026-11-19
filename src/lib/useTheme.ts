@@ -5,6 +5,9 @@ export type Theme = 'light' | 'dark'
 const STORAGE_KEY = 'zu-theme'
 
 function readStoredTheme(): Theme {
+  // Prerendering runs in Node, where there is no window or storage.
+  if (typeof window === 'undefined') return 'light'
+
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
     if (stored === 'light' || stored === 'dark') return stored

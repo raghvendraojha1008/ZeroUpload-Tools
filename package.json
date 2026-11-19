@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && npm run build:ssg && npm run prerender",
+    "build:ssg": "vite build --ssr src/ssg/entry-server.tsx --outDir .ssg --emptyOutDir",
+    "prerender": "node scripts/prerender.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview"
   },

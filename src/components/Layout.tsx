@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { Header } from './Header'
 import { Footer } from './Footer'
+import { PrivacyBadge } from './PrivacyBadge'
 import { ToastProvider } from './Toast'
 import { useTheme } from '../lib/useTheme'
 
@@ -28,6 +29,7 @@ export function Layout() {
           <Outlet />
         </main>
         <Footer />
+        <PrivacyBadge />
       </div>
     </ToastProvider>
   )

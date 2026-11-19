@@ -12,6 +12,8 @@ export const CONTACT_EMAIL = 'support@cleandevtools.com'
  * Leave empty or replace with your actual IDs when ready.
  */
 export const ADSENSE_CLIENT_ID = '' // e.g. 'ca-pub-1234567890123456'
+export const ADSENSE_SLOT_BANNER = '' // leaderboard unit, e.g. '1234567890'
+export const ADSENSE_SLOT_RAIL = '' // medium rectangle unit
 export const GOOGLE_ANALYTICS_ID = '' // e.g. 'G-XXXXXXXXXX'
 
 export function absoluteUrl(path: string): string {

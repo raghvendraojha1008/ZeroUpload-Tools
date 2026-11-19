@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ArrowRight, BadgePercent, Calculator, Lock, RotateCcw, Wallet } from 'lucide-react'
 import { Breadcrumbs } from '../components/Breadcrumbs'
 import { JsonLd } from '../components/FaqAccordion'
@@ -21,7 +22,9 @@ import {
   type ProviderResult,
 } from '../features/fee-calculator/fees'
 import { FAQ_ITEMS, PRIVACY_INTRO, PRIVACY_POINTS, STEPS } from '../features/fee-calculator/content'
+import { PAGE_META } from '../lib/pageMeta'
 import { usePageMeta } from '../lib/usePageMeta'
+import { buildShareUrl } from '../lib/share'
 import { cn } from '../lib/cn'
 
 const MODES: Array<{ value: CalculatorMode; label: string; hint: string }> = [
@@ -53,17 +56,25 @@ function bestResult(results: ProviderResult[]): ProviderResult | null {
 }
 
 export function FreelanceFeeCalculator() {
-  const [amountInput, setAmountInput] = useState('1200')
-  const [currency, setCurrency] = useState<CurrencyCode>('USD')
-  const [mode, setMode] = useState<CalculatorMode>('net')
+  const [searchParams] = useSearchParams()
+
+  // A shared link carries the whole scenario, so it opens on the same quote.
+  const [amountInput, setAmountInput] = useState(() => {
+    const shared = searchParams.get('amount')
+    return shared && shared.trim() ? shared : '1200'
+  })
+  const [currency, setCurrency] = useState<CurrencyCode>(() => {
+    const shared = searchParams.get('currency')
+    return shared && CURRENCIES.some((item) => item.code === shared)
+      ? (shared as CurrencyCode)
+      : 'USD'
+  })
+  const [mode, setMode] = useState<CalculatorMode>(() =>
+    searchParams.get('mode') === 'gross' ? 'gross' : 'net',
+  )
   const [providers, setProviders] = useState<FeeProvider[]>(DEFAULT_PROVIDERS)
 
-  usePageMeta({
-    title: 'Freelance Fee Calculator — Stripe, PayPal & Wise Comparison',
-    description:
-      'Compare payment processing fees for Stripe, PayPal and Wise. Calculate net profit and find the exact invoice amount needed to hit your desired payout.',
-    path: '/tools/freelance-fee-calculator',
-  })
+  usePageMeta(PAGE_META.freelanceFeeCalculator)
 
   const amount = parseAmount(amountInput)
   const results = useMemo(
@@ -86,6 +97,12 @@ export function FreelanceFeeCalculator() {
         'Estimates only. Confirm current rates with your provider.',
       ].join('\n')
     : ''
+
+  const shareUrl = buildShareUrl('/tools/freelance-fee-calculator', {
+    amount: amountInput.trim() || '1200',
+    currency,
+    mode,
+  })
 
   function updateRate(id: string, field: 'percent' | 'fixed', raw: string) {
     const parsed = Number(raw)
@@ -244,14 +261,23 @@ export function FreelanceFeeCalculator() {
               bodyClassName="p-0"
               subtitle={`${currency} · updated live`}
               action={
-                <CopyButton
-                  value={summary}
-                  label="Copy breakdown"
-                  variant="ghost"
-                  className="px-2 py-1"
-                  disabled={!hasResult}
-                  toastMessage="Breakdown copied"
-                />
+                <div className="flex flex-wrap items-center justify-end gap-1">
+                  <CopyButton
+                    value={shareUrl}
+                    label="Copy Shareable Link"
+                    variant="ghost"
+                    className="px-2 py-1"
+                    toastMessage="Shareable link copied"
+                  />
+                  <CopyButton
+                    value={summary}
+                    label="Copy breakdown"
+                    variant="ghost"
+                    className="px-2 py-1"
+                    disabled={!hasResult}
+                    toastMessage="Breakdown copied"
+                  />
+                </div>
               }
             >
               <div className="scroll-slim w-full max-w-full overflow-x-auto overscroll-x-contain">

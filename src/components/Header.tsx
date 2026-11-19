@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Moon, Search, Sun } from 'lucide-react'
 import type { Theme } from '../lib/useTheme'
 import { cn } from '../lib/cn'
@@ -13,12 +13,56 @@ interface HeaderProps {
 
 export function Header({ theme, onToggleTheme }: HeaderProps) {
   const navigate = useNavigate()
+  const location = useLocation()
+  const inputRef = useRef<HTMLInputElement>(null)
   const [term, setTerm] = useState('')
 
   function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     navigate(term.trim() ? `/?q=${encodeURIComponent(term.trim())}` : '/')
   }
+
+  // "/" and Cmd/Ctrl+K focus search from anywhere, including inside a tool.
+  useEffect(() => {
+    function isVisible(element: HTMLInputElement | null): boolean {
+      return Boolean(element && element.getClientRects().length > 0)
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      const target = event.target as HTMLElement | null
+      const isTyping = target
+        ? target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.tagName === 'SELECT' ||
+          target.isContentEditable
+        : false
+
+      const isSlash = event.key === '/' && !event.metaKey && !event.ctrlKey && !event.altKey
+      const isCommandK = (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k'
+
+      if (!isSlash && !isCommandK) return
+      if (isSlash && isTyping) return
+
+      event.preventDefault()
+
+      const input = inputRef.current
+      if (isVisible(input)) {
+        input?.focus()
+        input?.select()
+        return
+      }
+
+      // The header search is hidden on small screens — use the hero search instead.
+      if (location.pathname === '/') {
+        document.getElementById('tool-search')?.focus()
+      } else {
+        navigate('/', { state: { focusSearch: true } })
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [location.pathname, navigate])
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl transition-colors duration-200 dark:border-slate-800 dark:bg-[#08080a]/80">
@@ -33,13 +77,21 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
         <form onSubmit={handleSearch} className="relative ml-2 hidden flex-1 md:block md:max-w-xs">
           <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-500" />
           <input
+            ref={inputRef}
             type="search"
             value={term}
             onChange={(event) => setTerm(event.target.value)}
             placeholder="Search tools…"
             aria-label="Search tools"
-            className="h-9 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/15 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-indigo-400/60 dark:focus:bg-slate-900"
+            aria-keyshortcuts="/ Control+K Meta+K"
+            className="h-9 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-10 text-sm text-slate-900 outline-none transition placeholder:text-slate-500 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/15 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-indigo-400/60 dark:focus:bg-slate-900"
           />
+          <kbd
+            aria-hidden="true"
+            className="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-slate-200 bg-slate-50 px-1.5 py-0.5 font-mono text-[10px] text-slate-500 lg:block dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
+          >
+            /
+          </kbd>
         </form>
 
         <div className="ml-auto flex items-center gap-2">

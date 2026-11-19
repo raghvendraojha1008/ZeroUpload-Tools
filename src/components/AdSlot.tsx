@@ -1,4 +1,5 @@
-import { Megaphone } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { ADSENSE_CLIENT_ID, ADSENSE_SLOT_BANNER, ADSENSE_SLOT_RAIL } from '../lib/site'
 import { cn } from '../lib/cn'
 
 interface AdSlotProps {
@@ -7,33 +8,41 @@ interface AdSlotProps {
 }
 
 const SIZES = {
-  banner: { height: 'min-h-[90px]', label: 'Leaderboard · 728 × 90' },
-  rail: { height: 'min-h-[250px]', label: 'Medium rectangle · 300 × 250' },
+  banner: { height: 'min-h-[90px]', slot: ADSENSE_SLOT_BANNER },
+  rail: { height: 'min-h-[250px]', slot: ADSENSE_SLOT_RAIL },
 } as const
 
 /**
- * Space is reserved now (fixed min-height) so injecting real ad tags later
- * cannot shift the content around it.
+ * Renders nothing at all until an AdSense client ID is configured, so the
+ * shipped pages stay completely clean. Once an ID exists it reserves the same
+ * space as before and mounts the standard AdSense container.
  */
 export function AdSlot({ variant, className }: AdSlotProps) {
+  const containerRef = useRef<HTMLModElement>(null)
   const size = SIZES[variant]
 
+  useEffect(() => {
+    // Ads are off, or the Ins element is not mounted.
+    if (!ADSENSE_CLIENT_ID || !containerRef.current) return
+
+    const scope = window as unknown as { adsbygoogle?: unknown[] }
+    scope.adsbygoogle = scope.adsbygoogle ?? []
+    scope.adsbygoogle.push({})
+  }, [])
+
+  if (!ADSENSE_CLIENT_ID) return null
+
   return (
-    <aside
-      aria-label="Advertisement"
-      className={cn(
-        'flex flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-slate-300 bg-slate-100/60 px-4 py-4 text-center dark:border-slate-700 dark:bg-slate-900/40',
-        size.height,
-        className,
-      )}
-    >
-      <span className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-slate-600 dark:text-slate-400">
-        <Megaphone className="size-3" />
-        Advertisement
-      </span>
-      <span className="font-mono text-[10px] text-slate-600 dark:text-slate-400">
-        {size.label}
-      </span>
+    <aside aria-label="Advertisement" className={cn(size.height, className)}>
+      <ins
+        ref={containerRef}
+        className="adsbygoogle block w-full"
+        style={{ display: 'block' }}
+        data-ad-client={ADSENSE_CLIENT_ID}
+        data-ad-slot={size.slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </aside>
   )
 }

@@ -34,6 +34,7 @@ import {
 } from '../features/csv-cleaner/cleaner'
 import { SAMPLE_CSV } from '../features/csv-cleaner/sample'
 import { FAQ_ITEMS, PRIVACY_INTRO, PRIVACY_POINTS, STEPS } from '../features/csv-cleaner/content'
+import { PAGE_META } from '../lib/pageMeta'
 import { usePageMeta } from '../lib/usePageMeta'
 import { cn } from '../lib/cn'
 
@@ -66,12 +67,7 @@ const APP_SCHEMA = buildAppSchema({
 })
 
 export function CsvColumnCleaner() {
-  usePageMeta({
-    title: 'CSV Column Cleaner & Filter — Drop Columns Online',
-    description:
-      'Clean, filter and remove CSV columns online for free. Select columns to keep, trim whitespace, drop empty or duplicate rows, and export clean CSVs locally.',
-    path: '/tools/csv-column-cleaner',
-  })
+  usePageMeta(PAGE_META.csvColumnCleaner)
 
   const toast = useToast()
   const [source, setSource] = useState('')

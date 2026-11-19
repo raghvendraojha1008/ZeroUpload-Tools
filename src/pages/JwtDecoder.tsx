@@ -26,6 +26,7 @@ import {
   PRIVACY_POINTS,
   STEPS,
 } from '../features/jwt-decoder/content'
+import { PAGE_META } from '../lib/pageMeta'
 import { usePageMeta } from '../lib/usePageMeta'
 
 const FAQ_SCHEMA = buildFaqSchema(FAQ_ITEMS)
@@ -55,12 +56,7 @@ export function JwtDecoder() {
   const [now, setNow] = useState(() => Date.now())
   const [errorDismissed, setErrorDismissed] = useState(false)
 
-  usePageMeta({
-    title: 'JWT Decoder & Inspector — Free Online Token Viewer',
-    description:
-      'Decode and inspect JSON Web Tokens (JWT) online. View headers, payloads, claims and live expiry countdown timers. 100% private in-browser decoding.',
-    path: '/tools/jwt-decoder',
-  })
+  usePageMeta(PAGE_META.jwtDecoder)
 
   const result = useMemo(() => decodeJwt(source), [source])
   const token = result.token

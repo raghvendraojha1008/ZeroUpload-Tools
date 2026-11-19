@@ -1,13 +1,18 @@
 import {
+  Binary,
   Calculator,
   Code2,
+  Database,
   FileSpreadsheet,
+  Fingerprint,
   KeyRound,
+  Link2,
   Table2,
+  TableProperties,
   type LucideIcon,
 } from 'lucide-react'
 
-export type ToolCategory = 'Data' | 'Security' | 'Finance' | 'Text'
+export type ToolCategory = 'Data' | 'Security' | 'Finance' | 'Text' | 'Dev'
 export type CategoryFilter = 'All' | ToolCategory
 
 export interface Tool {
@@ -20,7 +25,7 @@ export interface Tool {
   tags: string[]
 }
 
-export const CATEGORIES: CategoryFilter[] = ['All', 'Data', 'Security', 'Finance', 'Text']
+export const CATEGORIES: CategoryFilter[] = ['All', 'Data', 'Security', 'Finance', 'Text', 'Dev']
 
 export const TOOLS: Tool[] = [
   {
@@ -72,6 +77,56 @@ export const TOOLS: Tool[] = [
     category: 'Text',
     icon: Code2,
     tags: ['regex', 'pattern', 'match', 'text', 'developer'],
+  },
+  {
+    id: 'sql-to-json-csv',
+    name: 'SQL to JSON / CSV',
+    description:
+      'Turn INSERT statements or a whole table dump into a JSON array or clean CSV, parsed in your browser.',
+    href: '/tools/sql-to-json-csv',
+    category: 'Data',
+    icon: Database,
+    tags: ['sql', 'insert', 'dump', 'mysql', 'postgres', 'json', 'csv', 'database', 'convert'],
+  },
+  {
+    id: 'base64-file-converter',
+    name: 'Base64 File Converter',
+    description:
+      'Encode an image, SVG, PDF or text file into Base64 and a data URI — or decode one back to a file.',
+    href: '/tools/base64-file-converter',
+    category: 'Data',
+    icon: Binary,
+    tags: ['base64', 'data uri', 'encode', 'decode', 'image', 'svg', 'pdf', 'file'],
+  },
+  {
+    id: 'markdown-table-generator',
+    name: 'Markdown Table Generator',
+    description:
+      'Build GitHub-flavored Markdown tables in a visual grid with per-column alignment and instant output.',
+    href: '/tools/markdown-table-generator',
+    category: 'Text',
+    icon: TableProperties,
+    tags: ['markdown', 'md', 'table', 'readme', 'gfm', 'github', 'docs', 'generator'],
+  },
+  {
+    id: 'uuid-generator',
+    name: 'UUID / GUID Generator',
+    description:
+      'Generate up to 100 random v4 or time-ordered v7 identifiers with format toggles and JSON output.',
+    href: '/tools/uuid-generator',
+    category: 'Dev',
+    icon: Fingerprint,
+    tags: ['uuid', 'guid', 'v4', 'v7', 'id', 'random', 'generator', 'bulk'],
+  },
+  {
+    id: 'url-parser',
+    name: 'URL Parser',
+    description:
+      'Deconstruct any URL into host, path and query parameters, edit them inline and copy the rebuilt link.',
+    href: '/tools/url-parser',
+    category: 'Dev',
+    icon: Link2,
+    tags: ['url', 'query string', 'uri', 'parameters', 'utm', 'oauth', 'redirect', 'parse'],
   },
 ]
 

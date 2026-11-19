@@ -21,6 +21,25 @@ const FreelanceFeeCalculator = lazy(() =>
 const RegexTester = lazy(() =>
   import('./pages/RegexTester').then((module) => ({ default: module.RegexTester })),
 )
+const SqlToJsonCsv = lazy(() =>
+  import('./pages/SqlToJsonCsv').then((module) => ({ default: module.SqlToJsonCsv })),
+)
+const Base64FileConverter = lazy(() =>
+  import('./pages/Base64FileConverter').then((module) => ({
+    default: module.Base64FileConverter,
+  })),
+)
+const MarkdownTableGenerator = lazy(() =>
+  import('./pages/MarkdownTableGenerator').then((module) => ({
+    default: module.MarkdownTableGenerator,
+  })),
+)
+const UuidGenerator = lazy(() =>
+  import('./pages/UuidGenerator').then((module) => ({ default: module.UuidGenerator })),
+)
+const UrlParser = lazy(() =>
+  import('./pages/UrlParser').then((module) => ({ default: module.UrlParser })),
+)
 const PrivacyPolicy = lazy(() =>
   import('./pages/PrivacyPolicy').then((module) => ({ default: module.PrivacyPolicy })),
 )
@@ -94,6 +113,46 @@ export function App() {
             element={
               <Suspense fallback={<RouteFallback />}>
                 <RegexTester />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/sql-to-json-csv"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <SqlToJsonCsv />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/base64-file-converter"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <Base64FileConverter />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/markdown-table-generator"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <MarkdownTableGenerator />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/uuid-generator"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <UuidGenerator />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/url-parser"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <UrlParser />
               </Suspense>
             }
           />

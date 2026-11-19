@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '../lib/cn'
 
@@ -54,23 +54,19 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
 }
 
 /**
- * Injects a JSON-LD block into <head> for the current page and removes it on unmount.
- * Keeps structured data colocated with the content that describes it.
+ * Renders a JSON-LD block inline, where it is picked up both by crawlers
+ * reading the prerendered HTML and by the client-rendered page. Structured
+ * data is valid anywhere in the document, which keeps this SSR-safe.
  */
 export function JsonLd({ id, data }: { id: string; data: Record<string, unknown> }) {
-  const serialized = JSON.stringify(data)
+  // `</script>` inside a string would close the tag early.
+  const serialized = JSON.stringify(data).replace(/</g, '\\u003c')
 
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.id = id
-    script.textContent = serialized
-    document.head.appendChild(script)
-
-    return () => {
-      script.remove()
-    }
-  }, [id, serialized])
-
-  return null
+  return (
+    <script
+      id={id}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serialized }}
+    />
+  )
 }

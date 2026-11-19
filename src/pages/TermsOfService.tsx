@@ -1,16 +1,19 @@
 import { FileText, CheckCircle2 } from 'lucide-react'
+import { PAGE_META } from '../lib/pageMeta'
+import { JsonLd } from '../components/FaqAccordion'
 import { usePageMeta } from '../lib/usePageMeta'
+import { buildWebPageSchema } from '../lib/schema'
+
 import { Breadcrumbs } from '../components/Breadcrumbs'
 
+const PAGE_SCHEMA = buildWebPageSchema(PAGE_META.termsOfService)
+
 export function TermsOfService() {
-  usePageMeta({
-    title: 'Terms of Service',
-    description: 'Terms and conditions for using CleanDevTools free client-side developer utilities.',
-    path: '/terms',
-  })
+  usePageMeta(PAGE_META.termsOfService)
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <JsonLd id="terms-page-schema" data={PAGE_SCHEMA} />
       <Breadcrumbs items={[{ label: 'Terms of Service' }]} />
 
       <div className="mt-8">
