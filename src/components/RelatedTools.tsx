@@ -32,7 +32,7 @@ export function RelatedTools({ currentToolId, category }: RelatedToolsProps) {
           to="/"
           className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 transition hover:text-indigo-500 dark:text-cyan-400 dark:hover:text-cyan-300"
         >
-          View all 10 tools
+          View all {TOOLS.length} tools
           <ArrowRight className="size-3.5" />
         </Link>
       </div>

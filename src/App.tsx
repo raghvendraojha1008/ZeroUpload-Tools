@@ -40,6 +40,23 @@ const UuidGenerator = lazy(() =>
 const UrlParser = lazy(() =>
   import('./pages/UrlParser').then((module) => ({ default: module.UrlParser })),
 )
+const CronParser = lazy(() =>
+  import('./pages/CronParser').then((module) => ({ default: module.CronParser })),
+)
+const JsonToTypescript = lazy(() =>
+  import('./pages/JsonToTypescript').then((module) => ({ default: module.JsonToTypescript })),
+)
+const UnixTimestampConverter = lazy(() =>
+  import('./pages/UnixTimestampConverter').then((module) => ({
+    default: module.UnixTimestampConverter,
+  })),
+)
+const CurlToCode = lazy(() =>
+  import('./pages/CurlToCode').then((module) => ({ default: module.CurlToCode })),
+)
+const HashGenerator = lazy(() =>
+  import('./pages/HashGenerator').then((module) => ({ default: module.HashGenerator })),
+)
 const PrivacyPolicy = lazy(() =>
   import('./pages/PrivacyPolicy').then((module) => ({ default: module.PrivacyPolicy })),
 )
@@ -153,6 +170,46 @@ export function App() {
             element={
               <Suspense fallback={<RouteFallback />}>
                 <UrlParser />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/cron-parser"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <CronParser />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/json-to-typescript"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <JsonToTypescript />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/unix-timestamp-converter"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <UnixTimestampConverter />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/curl-to-code"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <CurlToCode />
+              </Suspense>
+            }
+          />
+          <Route
+            path="tools/hash-generator"
+            element={
+              <Suspense fallback={<RouteFallback />}>
+                <HashGenerator />
               </Suspense>
             }
           />

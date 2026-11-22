@@ -1,14 +1,19 @@
 import {
   Binary,
   Calculator,
+  CalendarClock,
   Code2,
   Database,
+  FileCode2,
   FileSpreadsheet,
   Fingerprint,
+  History,
   KeyRound,
   Link2,
+  ShieldCheck,
   Table2,
   TableProperties,
+  Terminal,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -127,6 +132,56 @@ export const TOOLS: Tool[] = [
     category: 'Dev',
     icon: Link2,
     tags: ['url', 'query string', 'uri', 'parameters', 'utm', 'oauth', 'redirect', 'parse'],
+  },
+  {
+    id: 'cron-parser',
+    name: 'Cron Expression Parser',
+    description:
+      'Translate cron expressions into human English, inspect 5-field syntax, and calculate upcoming run times.',
+    href: '/tools/cron-parser',
+    category: 'Dev',
+    icon: CalendarClock,
+    tags: ['cron', 'crontab', 'schedule', 'parser', 'timer', 'cronjob', 'explainer', 'devops'],
+  },
+  {
+    id: 'json-to-typescript',
+    name: 'JSON to TypeScript & Zod',
+    description:
+      'Transform JSON objects into TypeScript interfaces, types, or Zod schemas with nested type extraction.',
+    href: '/tools/json-to-typescript',
+    category: 'Dev',
+    icon: FileCode2,
+    tags: ['json', 'typescript', 'types', 'interfaces', 'zod', 'schema', 'api', 'model'],
+  },
+  {
+    id: 'unix-timestamp-converter',
+    name: 'Unix Timestamp Converter',
+    description:
+      'Convert seconds and milliseconds to local, UTC, and ISO 8601 dates, or turn calendar dates into Unix epoch.',
+    href: '/tools/unix-timestamp-converter',
+    category: 'Dev',
+    icon: History,
+    tags: ['timestamp', 'epoch', 'unix', 'time', 'date', 'utc', 'iso8601', 'converter'],
+  },
+  {
+    id: 'curl-to-code',
+    name: 'cURL to Code Converter',
+    description:
+      'Convert cURL commands to JavaScript Fetch, Axios, Python Requests, HTTPX, and Go code locally.',
+    href: '/tools/curl-to-code',
+    category: 'Dev',
+    icon: Terminal,
+    tags: ['curl', 'fetch', 'axios', 'python', 'requests', 'httpx', 'golang', 'api', 'convert'],
+  },
+  {
+    id: 'hash-generator',
+    name: 'Hash & Checksum Generator',
+    description:
+      'Compute SHA-256, SHA-512, SHA-1, and MD5 hashes for text and files locally using the native WebCrypto API.',
+    href: '/tools/hash-generator',
+    category: 'Security',
+    icon: ShieldCheck,
+    tags: ['hash', 'sha256', 'sha512', 'md5', 'checksum', 'crypto', 'digest', 'integrity'],
   },
 ]
 

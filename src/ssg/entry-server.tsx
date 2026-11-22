@@ -17,6 +17,11 @@ import { SqlToJsonCsv } from '../pages/SqlToJsonCsv'
 import { TermsOfService } from '../pages/TermsOfService'
 import { UrlParser } from '../pages/UrlParser'
 import { UuidGenerator } from '../pages/UuidGenerator'
+import { CronParser } from '../pages/CronParser'
+import { JsonToTypescript } from '../pages/JsonToTypescript'
+import { UnixTimestampConverter } from '../pages/UnixTimestampConverter'
+import { CurlToCode } from '../pages/CurlToCode'
+import { HashGenerator } from '../pages/HashGenerator'
 
 const ROUTES: Array<{ path: string; element: ReactElement }> = [
   { path: '/', element: <Home /> },
@@ -30,6 +35,11 @@ const ROUTES: Array<{ path: string; element: ReactElement }> = [
   { path: '/tools/markdown-table-generator', element: <MarkdownTableGenerator /> },
   { path: '/tools/uuid-generator', element: <UuidGenerator /> },
   { path: '/tools/url-parser', element: <UrlParser /> },
+  { path: '/tools/cron-parser', element: <CronParser /> },
+  { path: '/tools/json-to-typescript', element: <JsonToTypescript /> },
+  { path: '/tools/unix-timestamp-converter', element: <UnixTimestampConverter /> },
+  { path: '/tools/curl-to-code', element: <CurlToCode /> },
+  { path: '/tools/hash-generator', element: <HashGenerator /> },
   { path: '/privacy', element: <PrivacyPolicy /> },
   { path: '/terms', element: <TermsOfService /> },
   { path: '/about', element: <About /> },

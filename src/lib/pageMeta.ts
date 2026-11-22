@@ -80,6 +80,36 @@ export const PAGE_META = {
       'Inspect any URL: protocol, host, port, path, fragment and every query parameter. Edit params inline and copy the reassembled encoded or decoded URL. 100% in-browser.',
     path: '/tools/url-parser',
   },
+  cronParser: {
+    title: 'Cron Expression Parser & Explainer — Human Schedule Builder Online',
+    description:
+      'Translate cron expressions into human English, inspect 5-field syntax, and calculate upcoming run times in your local timezone. 100% private in-browser tool.',
+    path: '/tools/cron-parser',
+  },
+  jsonToTypescript: {
+    title: 'JSON to TypeScript & Zod Schema Generator — 100% Private In-Browser',
+    description:
+      'Convert JSON payloads into TypeScript interfaces, type aliases, or Zod schemas with nested type extraction. Zero server upload, completely private.',
+    path: '/tools/json-to-typescript',
+  },
+  unixTimestampConverter: {
+    title: 'Unix Timestamp Converter — Epoch to Human Date (Local & UTC) Online',
+    description:
+      'Convert seconds and milliseconds to human dates in Local, UTC, and ISO 8601, or turn dates into Unix epoch. Real-time live clock, 100% in-browser.',
+    path: '/tools/unix-timestamp-converter',
+  },
+  curlToCode: {
+    title: 'cURL to Code Converter — JavaScript Fetch, Axios, Python & Go Online',
+    description:
+      'Convert cURL terminal commands into production-ready JavaScript Fetch, Axios, Python Requests, HTTPX, and Go code. 100% private in-browser execution.',
+    path: '/tools/curl-to-code',
+  },
+  hashGenerator: {
+    title: 'Hash & Checksum Generator — SHA-256, SHA-512, MD5 Online [WebCrypto]',
+    description:
+      'Generate SHA-256, SHA-512, SHA-384, SHA-1, and MD5 hashes for text and files locally using the native WebCrypto API. Checksum verification with zero server uploads.',
+    path: '/tools/hash-generator',
+  },
   privacyPolicy: {
     title: 'Privacy Policy',
     description:
